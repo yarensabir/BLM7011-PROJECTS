@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 module tb_avion_cpu;
  
     parameter TEST_CASE = 3;
@@ -189,11 +188,28 @@ always@(*) begin
             end
             
             1: begin
-                // Fill here
+                IRNext = MDROut;
+                PCNext = PC + 1;
+                stateNext = state + 1;
             end
             
             2: begin
-                // Fill here
+                if(IR[9:6] < 6) begin
+                    MAR = IR[5:0];
+                    stateNext = 3;         
+                end else if(IR[9:6] == 6) begin
+                    stateNext = 0;
+                    PCNext = IR[5:0];
+                end else if(IR[9:6] == 7) begin
+                    stateNext = 0;
+                    if(ACC == 0) begin
+                        PCNext = IR[5:0];
+                    end
+                end else if(IR[9:6] == 8) begin
+                    stateNext = 0;
+                end else if(IR[9:6] == 9) begin
+                    stateNext = 4;
+                end
             end
             
             3: begin
