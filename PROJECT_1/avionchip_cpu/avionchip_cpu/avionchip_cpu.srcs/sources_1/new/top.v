@@ -194,28 +194,46 @@ always@(*) begin
             end
             
             2: begin
-                if(IR[9:6] < 6) begin
-                    MAR = IR[5:0];
-                    stateNext = 3;         
-                end else if(IR[9:6] == 6) begin
+                if(IR[9:6] < 6) begin 
+                //elimdeki komutun en büyük 4 biti yani operasyon kodumun bulunduğu 4 bit 6'dan küçükse
+                //yani yapacağım iş bellekten sayı okumayı gerektiriyorsa 
+                    MAR = IR[5:0]; //adresin kendisini ramden okumaya başladım çünkü bu komutların bellekten alınan veriyi kullanacağını biliyorum  
+                    stateNext = 3; //durum 3'e atladım         
+                end else if(IR[9:6] == 6) begin // 6 jump komutu
                     stateNext = 0;
-                    PCNext = IR[5:0];
+                    PCNext = IR[5:0]; //program counter'a 6 biti atadım 
                 end else if(IR[9:6] == 7) begin
                     stateNext = 0;
                     if(ACC == 0) begin
                         PCNext = IR[5:0];
                     end
-                end else if(IR[9:6] == 8) begin
+                end else if(IR[9:6] == 8) begin // nop, no operation
                     stateNext = 0;
-                end else if(IR[9:6] == 9) begin
+                end else if(IR[9:6] == 9) begin // halt (boş) operasyon
                     stateNext = 4;
                 end
             end
             
             3: begin
-                // Fill here
+                stateNext = 0;
+                RAMWr = 0;
+                MAR = 0;
+                if(IR[9:6] == 0) begin
+                    ACCNext = MDROut;
+                end else if(IR[9:6] == 1) begin
+                    MAR = IR[5:0];
+                    RAMWr =1;
+                    MDRIn = ACC;
+                end else if(IR[9:6] == 2) begin
+                    ACCNext = MDROut + ACC;
+                end else if(IR[9:6] == 3) begin
+                    ACCNext = ACC - MDROut;
+                end else if(IR[9:6] == 4) begin
+                    ACCNext = ACC * MDROut;
+                end 
             end
             4: begin
+                // state 4 scope is null
             end
         endcase
     end
