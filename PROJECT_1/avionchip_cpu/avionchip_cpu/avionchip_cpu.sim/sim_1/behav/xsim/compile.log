@@ -1,0 +1,7 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yaren/Documents/GitHub/BLM7011-PROJECTS/PROJECT_1/avionchip_cpu/avionchip_cpu/avionchip_cpu.srcs/sources_1/new/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_avion_cpu
+INFO: [VRFC 10-311] analyzing module blram
+INFO: [VRFC 10-311] analyzing module avion_cpu
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/yaren/Documents/GitHub/BLM7011-PROJECTS/PROJECT_1/avionchip_cpu/avionchip_cpu/avionchip_cpu.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

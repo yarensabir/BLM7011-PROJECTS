@@ -1,6 +1,6 @@
 module tb_avion_cpu;
  
-    parameter TEST_CASE = 3;
+    parameter TEST_CASE = 2;
     
     parameter ADDRESS_WIDTH = 6;
     parameter DATA_WIDTH = 10;
@@ -230,11 +230,12 @@ always@(*) begin
                     ACCNext = ACC - MDROut;
                 end else if(IR[9:6] == 4) begin
                     ACCNext = ACC * MDROut;
-                end 
+                end else if(IR[9:6] == 5) begin
+                    ACCNext = ACC / MDROut;
+                end
             end
             4: begin
                 // state 4 scope is null
-                //operation code is 1001 HLT
             end
         endcase
     end
