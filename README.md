@@ -1,2 +1,4 @@
 # BLM7011-PROJECTS
 Marmara University -  Institute of Pure and Applied Sciences - Computer Engineering Master's Program -  BLM7011 Embedded Systems Course - Evaluation Projects Repository 
+
+Bu github reposu Marmara Üniversitesi Bilgisayar Mühendisliği Yüksek Lisans Programı kapsamında verilen BLM7011 Gömülü Sistem uygulamaları dersinin proje ödevleri için oluşturulmuştur. 1. proje AvionCPU işlemci tasarımı projesidir. AvionCPU_YarenSabır_523624021.docx dosyası projenin teslim dosyasıdır. top_avionCPU.txt tamamlanması için verilen top.v dosyasının içeriğini içermektedir. DOCS klasörü proje dokümanlarını, avionchip_cpu ise projenin vivado klasörüdür.
